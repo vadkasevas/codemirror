@@ -8,9 +8,6 @@ Package.describe({
 // Before Meteor 0.9?
 if(!Package.onUse) Package.onUse = Package.on_use;
 
-Npm.depends({
-	"js-beautify": "1.11.0",
-});
 Package.onUse(function (api) {
 	if(api.versionsFrom) {
 		api.versionsFrom('METEOR@0.9.0');
@@ -25,7 +22,7 @@ Package.onUse(function (api) {
 	//    required by:  'lib/codemirror/addon/link/yaml-lint.js'
 	//    reference:    https://github.com/nodeca/js-yaml
 	api.use("pntbr:js-yaml-client@0.0.1", "client");
-
+	api.add_files('lib/beautify/beautify.js');
 	// code
 	api.add_files('lib/codemirror/lib/codemirror.css', "client");
 	api.add_files('lib/codemirror/lib/codemirror.js', "client");
