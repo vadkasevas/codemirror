@@ -1,13 +1,16 @@
 Package.describe({
-	name: "perak:codemirror",
+	name: "malibun23:codemirror",
 	summary: "CodeMirror editor for Meteor >= 1.0",
-	version: "1.3.1",
-	git: "https://github.com/perak/codemirror.git"
+	version: "1.4.0",
+	git: "https://github.com/vadkasevas/codemirror.git"
 });
 
 // Before Meteor 0.9?
 if(!Package.onUse) Package.onUse = Package.on_use;
 
+Npm.depends({
+	"js-beautify": "1.11.0",
+});
 Package.onUse(function (api) {
 	if(api.versionsFrom) {
 		api.versionsFrom('METEOR@0.9.0');
@@ -41,6 +44,7 @@ Package.onUse(function (api) {
 	api.add_files('lib/codemirror/addon/fold/indent-fold.js', "client");
 	api.add_files('lib/codemirror/addon/fold/markdown-fold.js', "client");
 	api.add_files('lib/codemirror/addon/fold/xml-fold.js', "client");
+	api.add_files('lib/codemirror/addon/formatting/formatting.js', "client");
 
 	// lints
 	api.add_files('lib/codemirror/addon/lint/jsonlint.js', "client");
@@ -48,6 +52,7 @@ Package.onUse(function (api) {
 	api.add_files('lib/codemirror/addon/lint/csslint.js', "client");
 	api.add_files('lib/codemirror/addon/lint/yaml-lint.js', "client");
 	api.add_files('lib/codemirror/addon/lint/html-lint.js', "client");
+
 	api.export('jsonlint', "client");
 	api.export('JSHINT', "client");
 	api.export('CSSLint', "client");
